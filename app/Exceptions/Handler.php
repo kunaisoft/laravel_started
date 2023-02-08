@@ -47,4 +47,13 @@ class Handler extends ExceptionHandler
             //
         });
     }
+    
+    protected function shouldReturnJson($request, Throwable $e)
+    {
+        if( $request->is('api/*') ) { // for routes starting with `/api`
+            return true;
+        }
+       
+        return false;
+    }
 }
