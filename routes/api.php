@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\{JobController, UserController};
+use App\Http\Controllers\Api\UserController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -14,8 +14,9 @@ use App\Http\Controllers\Api\{JobController, UserController};
 |
 */
 
-Route::middleware('auth:sanctum')->group(function () {
-    Route::apiResource('jobs', JobController::class);
+Route::group(['prefix' => 'v1', 'as' => 'v1.', 'namespace' => 'App\Http\Controllers\Api\V1', 'middleware' => ['auth:sanctum']], function () {
+    Route::apiResource('posts', PostController::class);
 });
+
 
 Route::post('/auth/login', [UserController::class, 'login']);

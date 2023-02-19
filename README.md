@@ -1,6 +1,7 @@
 # Job Aggregator
 
 This project is created with [Laravel Jetstream]
+
 ---
 
 ## Requirements
@@ -27,7 +28,7 @@ git clone url repository
 
 ```
 composer install
-npm install && npm run dev
+npm install && npm run build
 ```
 
 ## Start prepare the environment:
@@ -36,4 +37,9 @@ npm install && npm run dev
 cp .env.example .env // setup database credentials
 php artisan key:generate
 php artisan migrate:refresh --seed
+php artisan l5-swagger:generate
+
+That's it: launch the main URL or go to __/login__ and login with default credentials __test@example.com__ - __password__ and generate api token
+
+launch the URL or go to __/api/documentation__ for test endpoints
 ```
